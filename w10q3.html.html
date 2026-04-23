@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- Rollover Image -->
+<img id="img" src="img1.jpg" width="200"
+     onmouseover="changeImg()"
+     onmouseout="resetImg()"
+     onclick="animateImg()">
+
+<br><br>
+
+<!-- Dropdown -->
+<select onchange="goPage(this.value)">
+  <option value="">Select Page</option>
+  <option value="https://google.com">Google</option>
+  <option value="https://youtube.com">YouTube</option>
+</select>
+
+<script>
+// Rollover
+function changeImg() {
+    document.getElementById("img").src = "img2.jpg";
+}
+
+function resetImg() {
+    document.getElementById("img").src = "img1.jpg";
+}
+
+// Click animation
+function animateImg() {
+    let img = document.getElementById("img");
+    img.style.width = "300px";  // increase size
+}
+
+// Dropdown navigation
+function goPage(url) {
+    if(url != "") {
+        window.location = url;
+    }
+}
+</script>
+
+</body>
+</html>

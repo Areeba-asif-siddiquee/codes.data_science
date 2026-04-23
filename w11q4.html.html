@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- Month Dropdown -->
+<select id="month">
+  <option value="0">January</option>
+  <option value="1">February</option>
+  <option value="2">March</option>
+  <option value="3">April</option>
+  <option value="4">May</option>
+  <option value="5">June</option>
+  <option value="6">July</option>
+  <option value="7">August</option>
+  <option value="8">September</option>
+  <option value="9">October</option>
+  <option value="10">November</option>
+  <option value="11">December</option>
+</select>
+
+<!-- Year Dropdown -->
+<select id="year">
+  <option>2023</option>
+  <option>2024</option>
+  <option>2025</option>
+</select>
+
+<button onclick="showCal()">Show Calendar</button>
+
+<div id="cal"></div>
+
+<script>
+function showCal() {
+    let month = document.getElementById("month").value;
+    let year = document.getElementById("year").value;
+
+    let d = new Date(year, month, 1);
+
+    let output = "<table border='1'><tr>";
+    let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+    for(let day of days) {
+        output += "<th>" + day + "</th>";
+    }
+    output += "</tr><tr>";
+
+    // empty spaces
+    for(let i=0; i<d.getDay(); i++) {
+        output += "<td></td>";
+    }
+
+    // dates
+    while(d.getMonth() == month) {
+        output += "<td>" + d.getDate() + "</td>";
+
+        if(d.getDay() == 6) {
+            output += "</tr><tr>";
+        }
+
+        d.setDate(d.getDate() + 1);
+    }
+
+    output += "</tr></table>";
+
+    document.getElementById("cal").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

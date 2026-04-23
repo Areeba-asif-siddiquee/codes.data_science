@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+    display: flex;
+}
+
+.left {
+    width: 30%;
+    background: lightgray;
+    padding: 10px;
+}
+
+.right {
+    width: 70%;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Left Side (Links) -->
+    <div class="left">
+        <a href="#" onclick="showForm1()">Form 1</a><br><br>
+        <a href="#" onclick="showForm2()">Form 2</a>
+    </div>
+
+    <!-- Right Side (Forms + Result) -->
+    <div class="right" id="content">
+        Click a form link
+    </div>
+
+</div>
+
+<script>
+function showForm1() {
+    document.getElementById("content").innerHTML = `
+    <h3>Form 1</h3>
+    Name: <input id="name"><br><br>
+    <button onclick="submitForm1()">Submit</button>
+    <p id="result1"></p>
+    `;
+}
+
+function submitForm1() {
+    let name = document.getElementById("name").value;
+    
+    if(name == "") {
+        alert("Name required!");
+    } else {
+        document.getElementById("result1").innerHTML = "Hello " + name;
+    }
+}
+
+function showForm2() {
+    document.getElementById("content").innerHTML = `
+    <h3>Form 2</h3>
+    Age: <input id="age"><br><br>
+    <button onclick="submitForm2()">Submit</button>
+    <p id="result2"></p>
+    `;
+}
+
+function submitForm2() {
+    let age = document.getElementById("age").value;
+    
+    if(age == "" || age < 1) {
+        alert("Enter valid age!");
+    } else {
+        document.getElementById("result2").innerHTML = "Your age is " + age;
+    }
+}
+</script>
+
+</body>
+</html>

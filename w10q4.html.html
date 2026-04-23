@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+let year = prompt("Enter year:");
+
+for(let month = 0; month < 12; month++) {
+
+    let d = new Date(year, month, 1);
+    let monthName = d.toLocaleString('default', { month: 'long' });
+
+    document.write("<h3>" + monthName + " " + year + "</h3>");
+
+    // Days header
+    document.write("Sun Mon Tue Wed Thu Fri Sat<br>");
+
+    // Space before first day
+    let firstDay = d.getDay();
+    for(let i = 0; i < firstDay; i++) {
+        document.write("&nbsp;&nbsp;&nbsp;");
+    }
+
+    // Days of month
+    while(d.getMonth() == month) {
+        document.write(d.getDate() + " ");
+        d.setDate(d.getDate() + 1);
+    }
+
+    document.write("<br><br>");
+}
+</script>
+
+</body>
+</html>

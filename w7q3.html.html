@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<img src="img1.jpg" 
+     onmouseover="changeImage()" 
+     onmouseout="restoreImage()" 
+     id="myImage" width="200">
+
+<script>
+function changeImage() {
+    document.getElementById("myImage").src = "img2.jpg";
+}
+
+function restoreImage() {
+    document.getElementById("myImage").src = "img1.jpg";
+}
+</script>
+
+</body>
+</html>
